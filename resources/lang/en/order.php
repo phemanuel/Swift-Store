@@ -29,7 +29,7 @@ return [
     'Received_Amount'   => 'Received Amount',
     'Status'            => 'Status',
     'To_Pay'            => 'To Pay',
-    'Created_At'        => 'Created At',
+    'Created_At'        => 'Date',
     'Not_Paid'          => 'Not Paid',
     'Partial'           => 'Partial',
     'Paid'              => 'Paid',

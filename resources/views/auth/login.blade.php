@@ -64,11 +64,16 @@
         <!-- /.col -->
     </div>
 </form>
-
-<p class="mb-1">
+<table>
+    <tr>
+        <td><p class="mb-1">
     <a href="{{ route('password.request') }}">Forgot password</a>
-</p>
-<p class="mb-0">
+</p></td>
+        <td align="right"><p class="mb-0">
     <a href="{{ route('register')}}" class="text-center">Register </a>
-</p>
+</p></td>
+    </tr>
+</table>
+
+
 @endsection

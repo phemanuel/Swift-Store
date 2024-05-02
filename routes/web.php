@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return redirect('/admin');
 });
-
+ 
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function () {

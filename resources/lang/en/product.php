@@ -23,7 +23,7 @@ return [
     // Error handling messages
     //==========================================
     'error_creating'    => 'Sorry, there a problem while creating product.',
-    'success_creating'  => 'Success, you product have been created.',
+    'success_creating'  => 'Success, your product have been created.',
     'error_updating'    => 'Sorry, there\'re a problem while updating product.',
     'success_updating'  => 'Success, your product have been updated.',
 
@@ -36,7 +36,8 @@ return [
     'Image'             => 'Image',
     'Choose_file'       => 'Choose file',
     'Barcode'           => 'Barcode',
-    'Price'             => 'Price',
+    'Base_Price'        => 'Base_Price',
+    'Sell_Price'        => 'Sell_Price',
     'Quantity'          => 'Quantity',
     'Status'            => 'Status',
     'Edit_Product'      => 'Edit Product',
@@ -50,5 +51,8 @@ return [
     'really_delete'     => 'Do you really want to delete this product?',
     'yes_delete'        => 'Yes, delete it!',
     'No'                => 'No',
+    'Shelf'             => 'Shelf',
+    'Category'          => 'Category',
+
 
 ];

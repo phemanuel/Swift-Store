@@ -12,8 +12,11 @@ class Product extends Model
         'image',
         'barcode',
         'product_base_price',
-        'product_sell_price',
+        'price',
         'quantity',
-        'status'
+        'status',
+        'category_name',
+        'shelf',
+        'client_id'
     ];
 }

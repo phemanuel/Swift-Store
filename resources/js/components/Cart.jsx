@@ -216,6 +216,7 @@ class Cart extends Component {
             }
         });
     }
+    // ---user_cart display
     render() {
         const { cart, products, customers, barcode, translations} = this.state;
         return (

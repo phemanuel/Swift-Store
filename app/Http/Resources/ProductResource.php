@@ -22,9 +22,11 @@ class ProductResource extends JsonResource
             'image' => $this->image,
             'barcode' => $this->barcode,
             'product_base_price' => $this->product_base_price,
-            'product_sell_price' => $this->product_sell_price,
+            'price' => $this->price,
+            'shelf' => $this->shelf,
             'quantity' => $this->quantity,
             'status' => $this->status,
+            'category_name' => $this->category_name,
             'created_at' => $this->created_at,
             'image_url' => Storage::url($this->image)
         ];

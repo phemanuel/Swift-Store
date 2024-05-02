@@ -13,6 +13,27 @@
             @method('PUT')
 
             <div class="form-group">
+                <label for="category_name">{{ __('product.Category') }}</label>
+                <select name="category_name" class="form-control @error('category_name') is-invalid @enderror" id="category_name">
+                @if($product->category_name)
+                <option value="{{$product->category_name}}" selected>{{$product->category_name}}</option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                @endforeach 
+                @else
+                @foreach ($categories as $category)
+                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                @endforeach   
+                @endif                 
+                </select>
+                @error('category_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="name">{{ __('product.Name') }}</label>
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
                     placeholder="{{ __('product.Name') }}" value="{{ old('name', $product->name) }}">
@@ -61,9 +82,9 @@
             </div>
 
             <div class="form-group">
-                <label for="price">{{ __('product.product_base_price') }}</label>
-                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price"
-                    placeholder="{{ __('product.product_base_price') }}" value="{{ old('product_base_price', $product->product_base_price) }}">
+                <label for="price">{{ __('product.Base_Price') }}</label>
+                <input type="text" name="product_base_price" class="form-control @error('product_base_price') is-invalid @enderror" id="product_base_price"
+                    placeholder="{{ __('product.Base_Price') }}" value="{{ old('product_base_price', $product->product_base_price) }}">
                 @error('product_base_price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -72,10 +93,21 @@
             </div>
 
             <div class="form-group">
-                <label for="price">{{ __('product.product_sell_price') }}</label>
-                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price"
-                    placeholder="{{ __('product.product_sell_price') }}" value="{{ old('product_sell_price', $product->product_sell_price) }}">
+                <label for="price">{{ __('product.Sell_Price') }}</label>
+                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="product_sell_price"
+                    placeholder="{{ __('product.Sell_Price') }}" value="{{ old('price', $product->price) }}">
                 @error('product_sell_price')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="shelf">{{ __('product.Shelf') }}</label>
+                <input type="text" name="shelf" class="form-control @error('shelf') is-invalid @enderror" id="shelf"
+                    placeholder="{{ __('product.Shelf') }}" value="{{ old('name', $product->shelf) }}">
+                @error('shelf')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -105,7 +137,7 @@
                 </span>
                 @enderror
             </div>
-
+            <input type="hidden" name="client_id" value="ISPPOS">
             <button class="btn btn-primary" type="submit">{{ __('common.Update') }}</button>
         </form>
     </div>

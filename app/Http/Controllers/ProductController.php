@@ -6,6 +6,7 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,7 +37,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = ProductCategory::all();
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -59,9 +61,12 @@ class ProductController extends Controller
             'image' => $image_path,
             'barcode' => $request->barcode,
             'product_base_price' => $request->price,
-            'product_sell_price' => $request->sell_price,
+            'price' => $request->sell_price,
+            'category_name' => $request->category_name,
+            'shelf' => $request->shelf,
             'quantity' => $request->quantity,
-            'status' => $request->status
+            'status' => $request->status,
+            'client_id' => $request->client_id
         ]);
 
         if (!$product) {
@@ -89,7 +94,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit')->with('product', $product);
+        $categories = ProductCategory::all();
+        return view('products.edit', compact('categories', 'product'));
+        //return view('products.edit')->with('product', $product);
     }
 
     /**
@@ -105,7 +112,9 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->barcode = $request->barcode;
         $product->product_base_price = $request->product_base_price;
-        $product->product_sell_price = $request->product_sell_price;
+        $product->price = $request->price;
+        $product->shelf = $request->shelf;
+        $product->category_name = $request->category_name;
         $product->quantity = $request->quantity;
         $product->status = $request->status;
 

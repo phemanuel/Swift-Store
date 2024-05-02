@@ -12,6 +12,20 @@
             @csrf
 
             <div class="form-group">
+                <label for="category_name">{{ __('product.Category') }}</label>
+                <select name="category_name" class="form-control @error('category_name') is-invalid @enderror" id="category_name">
+                @foreach ($categories as $category)
+                <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                @endforeach                    
+                </select>
+                @error('category_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="name">{{ __('product.Name') }}</label>
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
                     placeholder="{{ __('product.Name') }}" value="{{ old('name') }}">
@@ -59,9 +73,31 @@
             </div>
 
             <div class="form-group">
-                <label for="price">{{ __('product.Price') }}</label>
+                <label for="price">{{ __('product.Base_Price') }}</label>
                 <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price"
-                    placeholder="{{ __('product.Price') }}" value="{{ old('price') }}">
+                    placeholder="{{ __('product.Base_Price') }}" value="{{ old('price') }}">
+                @error('price')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="sell_price">{{ __('product.Sell_Price') }}</label>
+                <input type="text" name="sell_price" class="form-control @error('sell_price') is-invalid @enderror" id="sell_price"
+                    placeholder="{{ __('product.Sell_Price') }}" value="{{ old('sell_price') }}">
+                @error('price')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="shelf">{{ __('product.Shelf') }}</label>
+                <input type="text" name="shelf" class="form-control @error('shelf') is-invalid @enderror" id="shelf"
+                    placeholder="{{ __('product.Shelf') }}" value="{{ old('shelf') }}">
                 @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -92,7 +128,7 @@
                 </span>
                 @enderror
             </div>
-
+            <input type="hidden" name="client_id" value="ISPPOS">
             <button class="btn btn-primary" type="submit">{{ __('common.Create') }}</button>
         </form>
     </div>

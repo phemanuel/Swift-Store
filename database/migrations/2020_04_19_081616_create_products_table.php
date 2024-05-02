@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('barcode')->unique();
             $table->string('category_name');
             $table->decimal('product_base_price', 10, 2);
-            $table->decimal('product_sell_price', 10, 2);
+            $table->decimal('price', 10, 2);
             $table->decimal('product_discount', 5, 2)->default(0);
             $table->unsignedBigInteger('entered_by')->nullable();            
             $table->unsignedBigInteger('user_id')->nullable();
